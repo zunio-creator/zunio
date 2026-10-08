@@ -1,0 +1,1469 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    font-family: "Poppins", sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 176, 115, 0.28),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(255, 128, 67, 0.22),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #17120f,
+            #211711
+        );
+}
+
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+.blob {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.6;
+
+    animation:
+        floating 12s ease-in-out infinite alternate;
+}
+
+
+.blob-one {
+
+    width: 430px;
+    height: 430px;
+
+    left: -160px;
+    top: -160px;
+
+    background:
+        rgba(255, 163, 97, 0.5);
+}
+
+
+.blob-two {
+
+    width: 400px;
+    height: 400px;
+
+    right: -150px;
+    bottom: -130px;
+
+    background:
+        rgba(255, 126, 66, 0.42);
+
+    animation-delay: -4s;
+}
+
+
+.blob-three {
+
+    width: 280px;
+    height: 280px;
+
+    left: 42%;
+    top: 40%;
+
+    background:
+        rgba(255, 200, 155, 0.25);
+
+    animation-delay: -7s;
+}
+
+
+@keyframes floating {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    100% {
+        transform:
+            translate3d(45px, -35px, 0)
+            scale(1.12);
+    }
+}
+
+
+
+/* =====================================================
+   AUTH CONTAINER
+===================================================== */
+
+.auth-container {
+
+    position: relative;
+
+    width: min(920px, 92vw);
+
+    height: 570px;
+
+    overflow: hidden;
+
+    border-radius: 32px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 40px 100px
+        rgba(0, 0, 0, 0.5),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.25);
+
+    backdrop-filter:
+        blur(30px);
+
+    -webkit-backdrop-filter:
+        blur(30px);
+
+    z-index: 2;
+}
+
+
+
+/* =====================================================
+   FORM SECTIONS
+===================================================== */
+
+.form-section {
+
+    position: absolute;
+
+    top: 0;
+
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 45px;
+
+    transition:
+        transform 0.8s
+        cubic-bezier(.77, 0, .18, 1),
+
+        opacity 0.5s ease;
+}
+
+
+/* =====================================================
+   SIGN IN POSITION
+===================================================== */
+
+.sign-in-section {
+
+    left: 0;
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+    pointer-events: auto;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   SIGN UP POSITION
+===================================================== */
+
+.sign-up-section {
+
+    right: 0;
+
+    opacity: 0;
+
+    transform:
+        translateX(35px);
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+
+/* =====================================================
+   FORM CONTENT
+===================================================== */
+
+.form-content {
+
+    width: 100%;
+
+    max-width: 350px;
+
+    text-align: center;
+}
+
+
+.form-content h1 {
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    letter-spacing: -1px;
+
+    color: #FFF;
+
+    margin-bottom: 7px;
+}
+
+
+.form-subtitle {
+
+    font-size: 11px;
+
+    color:
+        rgba(255, 255, 255, 0.7);
+
+    margin-bottom: 18px;
+}
+
+
+/* =====================================================
+   OR
+===================================================== */
+
+.or-text {
+
+    font-size: 10px;
+
+    color:
+        rgba(55, 40, 30, 0.48);
+
+    margin-bottom: 14px;
+}
+
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.input-box {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    margin-bottom: 11px;
+
+    border-radius: 13px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.45);
+
+    background:
+        rgba(255, 255, 255, 0.35);
+
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+
+    transition:
+        0.3s ease;
+}
+
+
+.input-box:focus-within {
+
+    background:
+        rgba(255, 255, 255, 0.62);
+
+    border-color:
+        rgba(238, 128, 73, 0.75);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(255, 160, 100, 0.1);
+}
+
+
+.input-icon {
+
+    width: 43px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 13px;
+
+    opacity: 0.5;
+}
+
+
+.input-box input {
+
+    flex: 1;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #302017;
+
+    font-family: inherit;
+
+    font-size: 12px;
+}
+
+
+.input-box input::placeholder {
+
+    color:
+        rgba(60, 45, 35, 0.45);
+}
+
+
+
+/* =====================================================
+   PASSWORD TOGGLE
+===================================================== */
+
+.password-toggle {
+
+    width: 42px;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color:
+        rgba(55, 40, 30, 0.45);
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+
+
+/* =====================================================
+   FORGOT PASSWORD
+===================================================== */
+
+.forgot-password {
+
+    display: block;
+
+    text-align: right;
+
+    margin-top: 2px;
+
+    margin-bottom: 18px;
+
+    color:
+        rgba(55, 40, 30, 0.58);
+
+    font-size: 10px;
+
+    text-decoration: none;
+
+    transition: 0.25s;
+}
+
+
+.forgot-password:hover {
+
+    color: #df743d;
+}
+
+
+
+/* =====================================================
+   TERMS
+===================================================== */
+
+.terms {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    text-align: left;
+
+    margin:
+        4px 0 17px;
+
+    color:
+        rgba(255, 255, 255, 0.7);
+
+    font-size: 9px;
+
+    cursor: pointer;
+}
+
+
+.terms input {
+
+    accent-color:
+        #fff;
+
+    cursor: pointer;
+}
+
+
+.terms a {
+
+    color: #fff;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+
+/* =====================================================
+   MAIN BUTTON
+===================================================== */
+
+.main-btn {
+
+    min-width: 125px;
+
+    height: 45px;
+
+    padding:
+        0 25px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffb27d,
+            #ed7b3f
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 28px
+        rgba(234, 119, 58, 0.3);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.main-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 17px 32px
+        rgba(234, 119, 58, 0.42);
+}
+
+
+.main-btn:active {
+
+    transform:
+        scale(0.96);
+}
+
+
+
+/* =====================================================
+   MOVING GLASS PANEL
+===================================================== */
+
+.overlay-panel {
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 50%;
+    height: 100%;
+
+    overflow: hidden;
+
+    border-radius: 29px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 192, 148, 0.9),
+            rgba(235, 120, 66, 0.86)
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.4);
+
+    box-shadow:
+        -15px 0 45px
+        rgba(190, 89, 39, 0.15),
+
+        inset 1px 0
+        rgba(255, 255, 255, 0.45);
+
+    backdrop-filter:
+        blur(35px);
+
+    -webkit-backdrop-filter:
+        blur(35px);
+
+    z-index: 10;
+
+
+    /* THIS MAKES THE PANEL MOVE */
+
+    transition:
+        transform 0.8s
+        cubic-bezier(.77, 0, .18, 1);
+}
+
+
+
+/* =====================================================
+   PANEL → MOVE LEFT
+===================================================== */
+
+.auth-container.sign-up-active
+.overlay-panel {
+
+    transform:
+        translateX(-100%);
+}
+
+
+
+/* =====================================================
+   GLASS SHINE
+===================================================== */
+
+.glass-shine {
+
+    position: absolute;
+
+    top: -100px;
+    left: -250px;
+
+    width: 180px;
+    height: 700px;
+
+    transform:
+        rotate(20deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.35),
+            transparent
+        );
+
+    animation:
+        shine 5s ease-in-out infinite;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+@keyframes shine {
+
+    0% {
+        left: -250px;
+    }
+
+    45%,
+    100% {
+        left: 650px;
+    }
+}
+
+
+
+/* =====================================================
+   DECORATIVE CIRCLES
+===================================================== */
+
+.glass-circle {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.18);
+
+    backdrop-filter:
+        blur(8px);
+
+    pointer-events: none;
+}
+
+
+.circle-one {
+
+    width: 260px;
+    height: 260px;
+
+    top: -100px;
+    right: -100px;
+}
+
+
+.circle-two {
+
+    width: 180px;
+    height: 180px;
+
+    bottom: -80px;
+    left: -70px;
+}
+
+
+
+/* =====================================================
+   PANEL CONTENT
+===================================================== */
+
+.overlay-content {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px;
+
+    color: white;
+
+    z-index: 5;
+
+    transition:
+        opacity 0.35s ease,
+
+        transform 0.55s
+        cubic-bezier(.77, 0, .18, 1);
+}
+
+
+
+/* =====================================================
+   PANEL LOGIN STATE
+===================================================== */
+
+.overlay-login {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+    pointer-events: auto;
+}
+
+
+.overlay-register {
+
+    opacity: 0;
+
+    transform:
+        translateX(45px);
+
+    pointer-events: none;
+}
+
+
+
+/* =====================================================
+   PANEL ICON
+===================================================== */
+
+.panel-icon {
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.14);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.42);
+
+    box-shadow:
+        inset 0 1px
+        rgba(255, 255, 255, 0.4),
+
+        0 15px 30px
+        rgba(100, 45, 20, 0.15);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+
+
+/* =====================================================
+   PANEL TEXT
+===================================================== */
+
+.overlay-content h2 {
+
+    font-size: 31px;
+
+    font-weight: 700;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 12px;
+}
+
+
+.overlay-content p {
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    color:
+        rgba(255, 255, 255, 0.9);
+
+    margin-bottom: 25px;
+}
+
+
+
+/* =====================================================
+   OUTLINE BUTTON
+===================================================== */
+
+.outline-btn {
+
+    min-width: 125px;
+
+    height: 44px;
+
+    padding:
+        0 25px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.8);
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    backdrop-filter:
+        blur(12px);
+
+    transition:
+        0.3s ease;
+}
+
+
+.outline-btn:hover {
+
+    background:
+        rgba(255, 255, 255, 0.25);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(100, 45, 20, 0.18);
+}
+
+
+
+/* =====================================================
+   SIGN UP ACTIVE
+===================================================== */
+
+
+/* Sign In Form */
+
+.auth-container.sign-up-active
+.sign-in-section {
+
+    opacity: 0;
+
+    transform:
+        translateX(-35px);
+
+    pointer-events: none;
+}
+
+
+
+/* Sign Up Form */
+
+.auth-container.sign-up-active
+.sign-up-section {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+    pointer-events: auto;
+}
+
+
+
+/* Panel Login Content */
+
+.auth-container.sign-up-active
+.overlay-login {
+
+    opacity: 0;
+
+    transform:
+        translateX(-45px);
+
+    pointer-events: none;
+}
+
+
+
+/* Panel Register Content */
+
+.auth-container.sign-up-active
+.overlay-register {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+    pointer-events: auto;
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 750px) {
+
+    body {
+
+        overflow-y: auto;
+
+        padding:
+            20px 0;
+    }
+
+
+    .auth-container {
+
+        width: 92vw;
+
+        height: 700px;
+    }
+
+
+    .form-section {
+
+        width: 100%;
+
+        height: 65%;
+
+        top: 35%;
+
+        padding:
+            25px;
+    }
+
+
+    .overlay-panel {
+
+        width: 100%;
+
+        height: 35%;
+
+        top: 0;
+
+        right: 0;
+
+        border-radius:
+            28px;
+    }
+
+
+    /* Mobile panel moves DOWN */
+
+    .auth-container.sign-up-active
+    .overlay-panel {
+
+        transform:
+            translateY(185%);
+    }
+
+
+    .form-content h1 {
+
+        font-size: 28px;
+    }
+
+
+    .overlay-content {
+
+        padding:
+            20px;
+    }
+
+
+    .overlay-content h2 {
+
+        font-size: 25px;
+    }
+
+
+    .overlay-content p {
+
+        font-size: 10px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .panel-icon {
+
+        width: 45px;
+        height: 45px;
+
+        font-size: 18px;
+
+        margin-bottom: 8px;
+    }
+
+}
+
+
+/* =====================================================
+   📱 PHONE RESPONSIVE — ADD AT THE VERY BOTTOM
+   Desktop design မထိပါ
+===================================================== */
+
+@media (max-width: 750px) {
+
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+    }
+
+    body {
+        min-height: 100svh;
+        height: auto;
+        padding: 10px 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    /* MAIN CARD */
+    .auth-container {
+        width: calc(100% - 20px);
+        max-width: 430px;
+        height: 680px;
+        min-height: 680px;
+        margin: auto;
+        border-radius: 26px;
+    }
+
+    /* FORM AREA */
+    .form-section {
+        width: 100%;
+        height: 65%;
+        top: 35%;
+        left: 0;
+        padding: 18px;
+    }
+
+    .form-content {
+        width: 100%;
+        max-width: 330px;
+        margin: auto;
+    }
+
+    /* TITLE */
+    .form-content h1 {
+        font-size: 26px;
+        line-height: 1.2;
+        margin-bottom: 6px;
+    }
+
+    .form-subtitle {
+        font-size: 10px;
+        line-height: 1.5;
+        margin-bottom: 14px;
+    }
+
+    /* SOCIAL LOGIN */
+    .social-login {
+        gap: 8px;
+        margin-bottom: 9px;
+    }
+
+    .social-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 11px;
+    }
+
+    .or-text {
+        font-size: 9px;
+        margin-bottom: 10px;
+    }
+
+    /* INPUT */
+    .input-box {
+        width: 100%;
+        height: 45px;
+        margin-bottom: 9px;
+        border-radius: 12px;
+    }
+
+    .input-icon {
+        width: 40px;
+        font-size: 12px;
+    }
+
+    .input-box input {
+        min-width: 0;
+        font-size: 11px;
+    }
+
+    .password-toggle {
+        width: 40px;
+        font-size: 12px;
+    }
+
+    /* FORGOT PASSWORD */
+    .forgot-password {
+        font-size: 9px;
+        margin-top: 1px;
+        margin-bottom: 13px;
+    }
+
+    /* TERMS */
+    .terms {
+        gap: 6px;
+        margin: 3px 0 13px;
+        font-size: 8px;
+        line-height: 1.4;
+    }
+
+    .terms input {
+        flex-shrink: 0;
+    }
+
+    /* MAIN BUTTON */
+    .main-btn {
+        min-width: 120px;
+        height: 42px;
+        padding: 0 20px;
+        border-radius: 11px;
+        font-size: 10px;
+    }
+
+
+    /* =================================================
+       ORANGE PANEL
+    ================================================= */
+
+    .overlay-panel {
+        width: 100%;
+        height: 35%;
+        top: 0;
+        right: 0;
+        border-radius: 25px;
+    }
+
+    /* Sign Up နှိပ်တဲ့အချိန် Panel အောက်ရွှေ့ */
+    .auth-container.sign-up-active .overlay-panel {
+        transform: translateY(186%);
+    }
+
+    .overlay-content {
+        width: 100%;
+        height: 100%;
+        padding: 15px 22px;
+    }
+
+    .overlay-content h2 {
+        font-size: 22px;
+        line-height: 1.2;
+        margin-bottom: 7px;
+    }
+
+    .overlay-content p {
+        width: 100%;
+        max-width: 280px;
+        font-size: 9px;
+        line-height: 1.55;
+        margin-bottom: 11px;
+    }
+
+    .panel-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+        margin-bottom: 7px;
+    }
+
+    .outline-btn {
+        min-width: 110px;
+        height: 39px;
+        padding: 0 18px;
+        border-radius: 10px;
+        font-size: 10px;
+    }
+
+
+    /* =================================================
+       BACKGROUND DECORATION
+    ================================================= */
+
+    .circle-one {
+        width: 150px;
+        height: 150px;
+        top: -65px;
+        right: -65px;
+    }
+
+    .circle-two {
+        width: 105px;
+        height: 105px;
+        bottom: -50px;
+        left: -45px;
+    }
+
+    .blob-one {
+        width: 280px;
+        height: 280px;
+        left: -120px;
+        top: -100px;
+    }
+
+    .blob-two {
+        width: 260px;
+        height: 260px;
+        right: -120px;
+        bottom: -100px;
+    }
+
+    .blob-three {
+        width: 180px;
+        height: 180px;
+        left: 35%;
+        top: 45%;
+    }
+}
+
+
+/* =====================================================
+   📱 SMALL PHONES
+   320px — 380px
+===================================================== */
+
+@media (max-width: 380px) {
+
+    body {
+        padding: 7px 0;
+    }
+
+    .auth-container {
+        width: calc(100% - 14px);
+        height: 650px;
+        min-height: 650px;
+        border-radius: 22px;
+    }
+
+    .form-section {
+        height: 66%;
+        top: 34%;
+        padding: 14px;
+    }
+
+    .overlay-panel {
+        height: 34%;
+        border-radius: 21px;
+    }
+
+    .form-content {
+        max-width: 300px;
+    }
+
+    .form-content h1 {
+        font-size: 23px;
+    }
+
+    .form-subtitle {
+        font-size: 9px;
+        margin-bottom: 11px;
+    }
+
+    .social-login {
+        gap: 6px;
+    }
+
+    .social-btn {
+        width: 37px;
+        height: 37px;
+    }
+
+    .or-text {
+        font-size: 8px;
+        margin-bottom: 8px;
+    }
+
+    .input-box {
+        height: 42px;
+        margin-bottom: 8px;
+    }
+
+    .input-icon {
+        width: 36px;
+    }
+
+    .input-box input {
+        font-size: 10px;
+    }
+
+    .password-toggle {
+        width: 36px;
+    }
+
+    .forgot-password {
+        font-size: 8px;
+        margin-bottom: 10px;
+    }
+
+    .terms {
+        font-size: 7.5px;
+        margin-bottom: 11px;
+    }
+
+    .main-btn {
+        min-width: 110px;
+        height: 39px;
+        font-size: 9px;
+    }
+
+    .overlay-content {
+        padding: 12px 15px;
+    }
+
+    .overlay-content h2 {
+        font-size: 19px;
+    }
+
+    .overlay-content p {
+        max-width: 250px;
+        font-size: 8px;
+        line-height: 1.5;
+        margin-bottom: 9px;
+    }
+
+    .panel-icon {
+        width: 37px;
+        height: 37px;
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    .outline-btn {
+        min-width: 102px;
+        height: 36px;
+        font-size: 9px;
+    }
+}
+
+
+/* =====================================================
+   📱 VERY SMALL PHONES
+   320px အောက်
+===================================================== */
+
+@media (max-width: 320px) {
+
+    .auth-container {
+        height: 620px;
+        min-height: 620px;
+    }
+
+    .form-section {
+        padding: 11px;
+    }
+
+    .form-content h1 {
+        font-size: 21px;
+    }
+
+    .input-box {
+        height: 40px;
+    }
+
+    .input-box input {
+        font-size: 9px;
+    }
+
+    .terms {
+        font-size: 7px;
+    }
+
+    .main-btn {
+        height: 37px;
+    }
+
+    .overlay-content h2 {
+        font-size: 18px;
+    }
+
+    .overlay-content p {
+        font-size: 7.5px;
+    }
+}
