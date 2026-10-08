@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Zunio — Scholarships</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../css/scholarship.css">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="bg-glow glow-1"></div>
+<div class="bg-glow glow-2"></div>
+<div class="bg-glow glow-3"></div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <a href="../index.html" class="logo">
+        Zunio<span>.</span>
+    </a>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="scholarship.html" class="active">
+            Scholarships
+        </a>
+
+        <a href="policy.html">
+            Policy
+        </a>
+
+    </nav>
+
+    <a href="login.html" class="nav-btn">
+        Get Started
+    </a>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+<section class="scholarship-hero">
+
+    <div class="hero-content reveal">
+
+        <div class="hero-badge">
+            <span></span>
+            SCHOLARSHIP OPPORTUNITIES
+        </div>
+
+        <h1>
+            Find the right
+            <strong>scholarship.</strong>
+        </h1>
+
+        <p>
+            Discover scholarship opportunities from universities,
+            organizations and foundations — all in one place.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#scholarships" class="primary-btn">
+                Explore Scholarships
+                <span>→</span>
+            </a>
+
+            <a href="#how-it-works" class="secondary-btn">
+                How it works
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO VISUAL -->
+
+    <div class="hero-visual reveal">
+
+        <div class="hero-ring ring-one"></div>
+        <div class="hero-ring ring-two"></div>
+
+        <div class="scholar-orb">
+
+            <div class="cap-icon">
+                🎓
+            </div>
+
+            <strong>
+                YOUR FUTURE
+            </strong>
+
+            <small>
+                STARTS HERE
+            </small>
+
+        </div>
+
+
+        <div class="floating-scholar-card card-top">
+
+            <div class="mini-icon">
+                $
+            </div>
+
+            <div>
+                <b>
+                    Fully Funded
+                </b>
+
+                <small>
+                    Tuition + Living
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="floating-scholar-card card-right">
+
+            <div class="mini-icon blue">
+                ✓
+            </div>
+
+            <div>
+                <b>
+                    Easy Apply
+                </b>
+
+                <small>
+                    Official Website
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="floating-scholar-card card-bottom">
+
+            <div class="mini-icon green">
+                ⏰
+            </div>
+
+            <div>
+                <b>
+                    Deadlines
+                </b>
+
+                <small>
+                    Never miss one</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="scholar-stats reveal">
+
+    <div class="stat-box">
+        <strong>100+</strong>
+        <span>Opportunities</span>
+    </div>
+
+    <div class="stat-box">
+        <strong>30+</strong>
+        <span>Countries</span>
+    </div>
+
+    <div class="stat-box">
+        <strong>50+</strong>
+        <span>Universities</span>
+    </div>
+
+    <div class="stat-box">
+        <strong>24/7</strong>
+        <span>Access</span>
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCHOLARSHIP SECTION
+===================================================== -->
+
+<section class="scholarship-section" id="scholarships">
+
+
+    <div class="section-heading reveal">
+
+        <div class="section-label">
+            <span></span>
+            FIND YOUR OPPORTUNITY
+        </div>
+
+        <h2>
+            Scholarships worth
+            <strong>looking at.</strong>
+        </h2>
+
+        <p>
+            Search through opportunities and find one
+            that matches your goals.
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH / FILTER -->
+
+    <div class="scholar-tools reveal">
+
+        <div class="search-box">
+
+            <span>⌕</span>
+
+            <input
+                type="text"
+                id="scholarshipSearch"
+                placeholder="Search scholarship..."
+            >
+
+        </div>
+
+
+        <select id="levelFilter">
+
+            <option value="all">
+                All Levels
+            </option>
+
+            <option value="undergraduate">
+                Undergraduate
+            </option>
+
+            <option value="masters">
+                Master's
+            </option>
+
+            <option value="phd">
+                PhD
+            </option>
+
+        </select>
+
+
+        <select id="fundingFilter">
+
+            <option value="all">
+                All Funding
+            </option>
+
+            <option value="fully-funded">
+                Fully Funded
+            </option>
+
+            <option value="partial">
+                Partial Funding
+            </option>
+
+        </select>
+
+    </div>
+
+
+
+    <!-- SCHOLARSHIP GRID -->
+
+    <div class="scholarship-grid" id="scholarshipGrid">
+
+
+        <!-- CARD 1 -->
+
+        <article
+            class="scholarship-card reveal"
+            data-level="masters"
+            data-funding="fully-funded"
+            data-name="Global Excellence Scholarship"
+        >
+
+            <div class="card-top-row">
+
+                <span class="status open">
+                    ● OPEN
+                </span>
+
+                <span class="bookmark">
+                    ♡
+                </span>
+
+            </div>
+
+
+            <div class="organization">
+
+                <div class="org-logo orange">
+                    GE
+                </div>
+
+                <div>
+                    <small>
+                        Global Education
+                    </small>
+
+                    <h3>
+                        Global Excellence Scholarship
+                    </h3>
+                </div>
+
+            </div>
+
+
+            <p class="description">
+                Financial support for outstanding students
+                pursuing higher education.
+            </p>
+
+
+            <div class="scholar-info">
+
+                <div>
+                    <span>Funding</span>
+                    <strong>Fully Funded</strong>
+                </div>
+
+                <div>
+                    <span>Level</span>
+                    <strong>Master's</strong>
+                </div>
+
+                <div>
+                    <span>Deadline</span>
+                    <strong>4 Nov 2026</strong>
+                </div>
+
+            </div>
+
+
+            <div class="card-footer">
+
+                <div class="amount">
+                    <small>VALUE</small>
+                    <strong>$20,000+</strong>
+                </div>
+
+                <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener"
+                    class="website-btn"
+                >
+                    Official Website
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 2 -->
+
+        <article
+            class="scholarship-card reveal"
+            data-level="undergraduate"
+            data-funding="partial"
+            data-name="Future Leaders Scholarship"
+        >
+
+            <div class="card-top-row">
+
+                <span class="status open">
+                    ● OPEN
+                </span>
+
+                <span class="bookmark">
+                    ♡
+                </span>
+
+            </div>
+
+
+            <div class="organization">
+
+                <div class="org-logo purple">
+                    FL
+                </div>
+
+                <div>
+                    <small>
+                        Future Foundation
+                    </small>
+
+                    <h3>
+                        Future Leaders Scholarship
+                    </h3>
+                </div>
+
+            </div>
+
+
+            <p class="description">
+                Supporting ambitious students with strong
+                academic and leadership potential.
+            </p>
+
+
+            <div class="scholar-info">
+
+                <div>
+                    <span>Funding</span>
+                    <strong>Partial</strong>
+                </div>
+
+                <div>
+                    <span>Level</span>
+                    <strong>Undergraduate</strong>
+                </div>
+
+                <div>
+                    <span>Deadline</span>
+                    <strong>15 Dec 2026</strong>
+                </div>
+
+            </div>
+
+
+            <div class="card-footer">
+
+                <div class="amount">
+                    <small>VALUE</small>
+                    <strong>$8,000</strong>
+                </div>
+
+                <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener"
+                    class="website-btn"
+                >
+                    Official Website
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 3 -->
+
+        <article
+            class="scholarship-card reveal"
+            data-level="phd"
+            data-funding="fully-funded"
+            data-name="Research Excellence Fellowship"
+        >
+
+            <div class="card-top-row">
+
+                <span class="status open">
+                    ● OPEN
+                </span>
+
+                <span class="bookmark">
+                    ♡
+                </span>
+
+            </div>
+
+
+            <div class="organization">
+
+                <div class="org-logo blue">
+                    RE
+                </div>
+
+                <div>
+                    <small>
+                        Research Institute
+                    </small>
+
+                    <h3>
+                        Research Excellence Fellowship
+                    </h3>
+                </div>
+
+            </div>
+
+
+            <p class="description">
+                A research-focused opportunity for students
+                pursuing advanced academic study.
+            </p>
+
+
+            <div class="scholar-info">
+
+                <div>
+                    <span>Funding</span>
+                    <strong>Fully Funded</strong>
+                </div>
+
+                <div>
+                    <span>Level</span>
+                    <strong>PhD</strong>
+                </div>
+
+                <div>
+                    <span>Deadline</span>
+                    <strong>20 Jan 2027</strong>
+                </div>
+
+            </div>
+
+
+            <div class="card-footer">
+
+                <div class="amount">
+                    <small>VALUE</small>
+                    <strong>$35,000+</strong>
+                </div>
+
+                <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener"
+                    class="website-btn"
+                >
+                    Official Website
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 4 -->
+
+        <article
+            class="scholarship-card reveal"
+            data-level="undergraduate"
+            data-funding="fully-funded"
+            data-name="Young Talent Scholarship"
+        >
+
+            <div class="card-top-row">
+
+                <span class="status open">
+                    ● OPEN
+                </span>
+
+                <span class="bookmark">
+                    ♡
+                </span>
+
+            </div>
+
+
+            <div class="organization">
+
+                <div class="org-logo green">
+                    YT
+                </div>
+
+                <div>
+                    <small>
+                        Young Talent Program
+                    </small>
+
+                    <h3>
+                        Young Talent Scholarship
+                    </h3>
+                </div>
+
+            </div>
+
+
+            <p class="description">
+                Helping talented students access quality
+                education and international opportunities.
+            </p>
+
+
+            <div class="scholar-info">
+
+                <div>
+                    <span>Funding</span>
+                    <strong>Fully Funded</strong>
+                </div>
+
+                <div>
+                    <span>Level</span>
+                    <strong>Undergraduate</strong>
+                </div>
+
+                <div>
+                    <span>Deadline</span>
+                    <strong>05 Feb 2027</strong>
+                </div>
+
+            </div>
+
+
+            <div class="card-footer">
+
+                <div class="amount">
+                    <small>VALUE</small>
+                    <strong>$15,000+</strong>
+                </div>
+
+                <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener"
+                    class="website-btn"
+                >
+                    Official Website
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+    <div
+        id="noResults"
+        class="no-results"
+    >
+        No scholarships found.
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HOW IT WORKS
+===================================================== -->
+
+<section
+    class="how-section"
+    id="how-it-works"
+>
+
+    <div class="section-heading reveal">
+
+        <div class="section-label">
+            <span></span>
+            SIMPLE PROCESS
+        </div>
+
+        <h2>
+            Find it.
+            <strong>Apply for it.</strong>
+        </h2>
+
+    </div>
+
+
+    <div class="steps-grid">
+
+        <div class="step-card reveal">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div class="step-icon">
+                ⌕
+            </div>
+
+            <h3>
+                Discover
+            </h3>
+
+            <p>
+                Search scholarships based on your
+                study level and funding needs.
+            </p>
+
+        </div>
+
+
+        <div class="step-card reveal">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div class="step-icon">
+                ✓
+            </div>
+
+            <h3>
+                Check Eligibility
+            </h3>
+
+            <p>
+                Review the requirements, deadline
+                and scholarship details carefully.
+            </p>
+
+        </div>
+
+
+        <div class="step-card reveal">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div class="step-icon">
+                ↗
+            </div>
+
+            <h3>
+                Apply
+            </h3>
+
+            <p>
+                Visit the official website and
+                submit your application.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta-section reveal">
+
+    <div class="cta-glow"></div>
+
+    <div class="cta-content">
+
+        <div class="section-label">
+            <span></span>
+            YOUR NEXT OPPORTUNITY
+        </div>
+
+        <h2>
+            Don't let an opportunity
+            <strong>pass you by.</strong>
+        </h2>
+
+        <p>
+            Start exploring scholarships and take
+            one step closer to your academic goals.
+        </p>
+
+        <a
+            href="#scholarships"
+            class="primary-btn"
+        >
+            Explore Scholarships
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-logo">
+        Zunio<span>.</span>
+    </div>
+
+    <p>
+        © 2026 Zunio. All rights reserved.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="about-us.html">
+            About
+        </a>
+
+        <a href="features.html">
+            Features
+        </a>
+
+    </div>
+
+</footer>
+
+
+</main>
+
+
+<script src="../js/scholarship.js"></script>
+
+</body>
+</html>

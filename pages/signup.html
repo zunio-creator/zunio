@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Liquid Glass Login</title>
+
+    <link rel="stylesheet" href="../css/login.css">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
+
+    <div class="background">
+
+        <div class="blob blob-one"></div>
+
+        <div class="blob blob-two"></div>
+
+        <div class="blob blob-three"></div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         AUTH CONTAINER
+    ========================================== -->
+
+    <main
+        class="auth-container"
+        id="authContainer"
+    >
+
+
+        <!-- =====================================
+             SIGN IN
+        ====================================== -->
+
+        <section class="form-section sign-in-section">
+
+            <div class="form-content">
+
+                <h1>Sign In</h1>
+
+                <p class="form-subtitle">
+                    Sign in to continue your journey
+                </p>
+
+
+                <p class="or-text">
+                    or use your email
+                </p>
+
+
+                <!-- Login Form -->
+
+                <form id="loginForm">
+
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            ✉
+                        </span>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Email Address"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="loginPassword"
+                        >
+                            ◉
+                        </button>
+
+                    </div>
+
+
+                    <a
+                        href="#"
+                        class="forgot-password"
+                    >
+                        Forgot Password?
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="main-btn"
+                    >
+                        SIGN IN
+                    </button>
+
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SIGN UP
+        ====================================== -->
+
+        <section class="form-section sign-up-section">
+
+            <div class="form-content">
+
+                <h1>Create Account</h1>
+
+                <p class="form-subtitle">
+                    Register your account to get started
+                </p>
+
+
+                <p class="or-text">
+                    or use your email
+                </p>
+
+
+                <!-- Sign Up Form -->
+
+                <form id="signupForm">
+
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            👤
+                        </span>
+
+                        <input
+                            type="text"
+                            id="signupName"
+                            placeholder="Full Name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            ✉
+                        </span>
+
+                        <input
+                            type="email"
+                            id="signupEmail"
+                            placeholder="Email Address"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            type="password"
+                            id="signupPassword"
+                            placeholder="Create Password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="signupPassword"
+                        >
+                            ◉
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm Password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="confirmPassword"
+                        >
+                            ◉
+                        </button>
+
+                    </div>
+
+
+
+                    <label class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required
+                        >
+
+                        <span>
+                            I agree to the
+                            <a href="#">
+                                Terms & Conditions
+                            </a>
+                        </span>
+
+                    </label>
+
+
+
+                    <button
+                        type="submit"
+                        class="main-btn"
+                    >
+                        SIGN UP
+                    </button>
+
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             MOVING GLASS PANEL
+        ====================================== -->
+
+        <div class="overlay-panel">
+
+
+            <!-- Glass Shine -->
+
+            <div class="glass-shine"></div>
+
+
+
+            <!-- Decorative Light -->
+
+            <div class="glass-circle circle-one"></div>
+
+            <div class="glass-circle circle-two"></div>
+
+
+
+            <!-- =================================
+                 PANEL : SIGN IN STATE
+            ================================== -->
+
+            <div class="overlay-content overlay-login">
+
+                <div class="panel-icon">
+                    Z
+                </div>
+
+                <h2>
+                    Hello, Friend!
+                </h2>
+
+                <p>
+                    Don't have an account yet?
+                    <br>
+                    Create your account and
+                    <br>
+                    start your journey with us.
+                </p>
+
+                <button
+                    class="outline-btn"
+                    id="showSignUp"
+                >
+                    SIGN UP
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================
+                 PANEL : SIGN UP STATE
+            ================================== -->
+
+            <div class="overlay-content overlay-register">
+
+                <div class="panel-icon">
+                    ✦
+                </div>
+
+                <h2>
+                    Welcome Back!
+                </h2>
+
+                <p>
+                    Already have an account?
+                    <br>
+                    Sign in and continue
+                    <br>
+                    your journey with us.
+                </p>
+
+                <button
+                    class="outline-btn"
+                    id="showSignIn"
+                >
+                    SIGN IN
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+    <script type="module" src="../JS/signup.js"></script>
+
+</body>
+
+</html>
