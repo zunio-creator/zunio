@@ -1,488 +1,133 @@
-/* =====================================================
-   FIREBASE
-===================================================== */
+
+/* ========================================
+   ZUNIO - SIGN UP
+======================================== */
+
+import { auth } from "./firebase-config.js";
 
 import {
-    initializeApp
-} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
-
-import {
-    getAuth,
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
+    setPersistence,
+    browserLocalPersistence,
     updateProfile
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
 
+const signupForm = document.getElementById("signupForm");
+const signupName = document.getElementById("signupName");
+const signupEmail = document.getElementById("signupEmail");
+const signupPassword = document.getElementById("signupPassword");
+const confirmPassword = document.getElementById("confirmPassword");
 
-/* =====================================================
-   FIREBASE CONFIG
-===================================================== */
+const signupButton = document.getElementById("signupButton");
+const buttonText = document.getElementById("buttonText");
+const signupMessage = document.getElementById("signupMessage");
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBJJsD3InZNJomK5Q0oESwqkxE-UqNxGRM",
-    authDomain: "zunio-160de.firebaseapp.com",
-    projectId: "zunio-160de",
-    storageBucket: "zunio-160de.firebasestorage.app",
-    messagingSenderId: "1058973279499",
-    appId: "1:1058973279499:web:87b770b6d1e82bfb1cae0e",
-    measurementId: "G-ZWV6ZMXZQQ"
-};
+// Show messages on the page
+function showMessage(message, type = "error") {
+    signupMessage.textContent = message;
+    signupMessage.className = `message show ${type}`;
+}
 
-
-/* =====================================================
-   INITIALIZE FIREBASE
-===================================================== */
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-
-
-/* =====================================================
-   AUTH CONTAINER
-===================================================== */
-
-const authContainer =
-    document.getElementById("authContainer");
-
-const showSignUp =
-    document.getElementById("showSignUp");
-
-const showSignIn =
-    document.getElementById("showSignIn");
-
-
-
-/* =====================================================
-   SIGN UP / SIGN IN SWITCH
-===================================================== */
-
-showSignUp.addEventListener("click", () => {
-
-    authContainer.classList.add(
-        "sign-up-active"
-    );
-
-});
-
-
-showSignIn.addEventListener("click", () => {
-
-    authContainer.classList.remove(
-        "sign-up-active"
-    );
-
-});
-
-
-
-/* =====================================================
-   PASSWORD SHOW / HIDE
-===================================================== */
-
-const passwordButtons =
-    document.querySelectorAll(
-        ".password-toggle"
-    );
-
-
-passwordButtons.forEach(button => {
-
+// Show / hide passwords
+document.querySelectorAll(".password-toggle").forEach((button) => {
     button.addEventListener("click", () => {
+        const target = document.getElementById(button.dataset.target);
 
-        const target =
-            button.dataset.target;
+        if (!target) return;
 
-        const input =
-            document.getElementById(target);
+        const showPassword = target.type === "password";
 
-
-        if (input.type === "password") {
-
-            input.type = "text";
-
-        } else {
-
-            input.type = "password";
-
-        }
-
+        target.type = showPassword ? "text" : "password";
+        button.textContent = showPassword ? "Hide" : "Show";
+        button.setAttribute(
+            "aria-label",
+            showPassword ? "Hide password" : "Show password"
+        );
     });
-
 });
 
+// Create account
+signupForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
+    const name = signupName.value.trim();
+    const email = signupEmail.value.trim();
+    const password = signupPassword.value;
+    const confirm = confirmPassword.value;
 
-/* =====================================================
-   LOGIN FORM
-===================================================== */
+    signupMessage.className = "message";
+    signupMessage.textContent = "";
 
-const loginForm =
-    document.getElementById("loginForm");
-
-
-loginForm.addEventListener(
-    "submit",
-    async function (event) {
-
-        event.preventDefault();
-
-
-        const email =
-            document
-                .getElementById("loginEmail")
-                .value
-                .trim();
-
-
-        const password =
-            document
-                .getElementById("loginPassword")
-                .value;
-
-
-        /* ===============================
-           VALIDATION
-        =============================== */
-
-        if (!email || !password) {
-
-            alert(
-                "Please enter your email and password."
-            );
-
-            return;
-        }
-
-
-        /* ===============================
-           FIREBASE LOGIN
-        =============================== */
-
-        try {
-
-            const userCredential =
-                await signInWithEmailAndPassword(
-                    auth,
-                    email,
-                    password
-                );
-
-
-            const user =
-                userCredential.user;
-
-
-            console.log(
-                "LOGIN SUCCESS",
-                user
-            );
-
-
-            alert(
-                "Login successful!"
-            );
-
-
-            /*
-               IMPORTANT:
-               မင်းလိုချင်သလို Login ပြီးတာနဲ့
-               profile.html ကို automatic redirect
-               မလုပ်ထားပါဘူး။
-            */
-
-
-        } catch (error) {
-
-            console.error(
-                "LOGIN ERROR:",
-                error
-            );
-
-
-            /* ===============================
-               FIREBASE ERROR
-            =============================== */
-
-            if (
-                error.code ===
-                "auth/invalid-credential"
-            ) {
-
-                alert(
-                    "Incorrect email or password."
-                );
-
-            }
-
-            else if (
-                error.code ===
-                "auth/user-not-found"
-            ) {
-
-                alert(
-                    "No account found with this email."
-                );
-
-            }
-
-            else if (
-                error.code ===
-                "auth/wrong-password"
-            ) {
-
-                alert(
-                    "Incorrect password."
-                );
-
-            }
-
-            else if (
-                error.code ===
-                "auth/invalid-email"
-            ) {
-
-                alert(
-                    "Please enter a valid email address."
-                );
-
-            }
-
-            else {
-
-                alert(
-                    "Login failed. Please try again."
-                );
-
-            }
-
-        }
-
+    if (password !== confirm) {
+        showMessage("Passwords do not match. Please try again.");
+        confirmPassword.focus();
+        return;
     }
-);
 
-
-
-/* =====================================================
-   SIGN UP FORM
-===================================================== */
-
-const signupForm =
-    document.getElementById("signupForm");
-
-
-signupForm.addEventListener(
-    "submit",
-    async function (event) {
-
-        event.preventDefault();
-
-
-        const name =
-            document
-                .getElementById("signupName")
-                .value
-                .trim();
-
-
-        const email =
-            document
-                .getElementById("signupEmail")
-                .value
-                .trim();
-
-
-        const password =
-            document
-                .getElementById("signupPassword")
-                .value;
-
-
-        const confirmPassword =
-            document
-                .getElementById("confirmPassword")
-                .value;
-
-
-        const terms =
-            document
-                .getElementById("terms")
-                .checked;
-
-
-
-        /* ===============================
-           VALIDATION
-        =============================== */
-
-        if (
-            !name ||
-            !email ||
-            !password ||
-            !confirmPassword
-        ) {
-
-            alert(
-                "Please fill in all fields."
-            );
-
-            return;
-        }
-
-
-
-        if (password.length < 6) {
-
-            alert(
-                "Password must be at least 6 characters."
-            );
-
-            return;
-        }
-
-
-
-        if (
-            password !==
-            confirmPassword
-        ) {
-
-            alert(
-                "Passwords do not match."
-            );
-
-            return;
-        }
-
-
-
-        if (!terms) {
-
-            alert(
-                "Please accept the Terms & Conditions."
-            );
-
-            return;
-        }
-
-
-
-        /* ===============================
-           FIREBASE SIGN UP
-        =============================== */
-
-        try {
-
-            const userCredential =
-                await createUserWithEmailAndPassword(
-                    auth,
-                    email,
-                    password
-                );
-
-
-            const user =
-                userCredential.user;
-
-
-            /* ===============================
-               SAVE DISPLAY NAME
-            =============================== */
-
-            await updateProfile(
-                user,
-                {
-                    displayName: name
-                }
-            );
-
-
-            console.log(
-                "SIGN UP SUCCESS",
-                user
-            );
-
-
-            alert(
-                "Account created successfully!"
-            );
-
-
-            /*
-               Sign Up ပြီးတာနဲ့
-               Sign In screen ကို ပြန်ပြမယ်။
-            */
-
-            authContainer.classList.remove(
-                "sign-up-active"
-            );
-
-
-            /*
-               Login form ထဲက email ကို
-               အလိုအလျောက်ထည့်ပေးမယ်။
-            */
-
-            document
-                .getElementById("loginEmail")
-                .value = email;
-
-
-        } catch (error) {
-
-            console.error(
-                "SIGN UP ERROR:",
-                error
-            );
-
-
-            /* ===============================
-               FIREBASE ERROR
-            =============================== */
-
-            if (
-                error.code ===
-                "auth/email-already-in-use"
-            ) {
-
-                alert(
-                    "This email is already registered."
-                );
-
-            }
-
-            else if (
-                error.code ===
-                "auth/invalid-email"
-            ) {
-
-                alert(
-                    "Please enter a valid email address."
-                );
-
-            }
-
-            else if (
-                error.code ===
-                "auth/weak-password"
-            ) {
-
-                alert(
-                    "Password is too weak."
-                );
-
-            }
-
-            else {
-
-                alert(
-                    "Sign up failed. Please try again."
-                );
-
-            }
-
-        }
-
+    if (password.length < 6) {
+        showMessage("Password must contain at least 6 characters.");
+        signupPassword.focus();
+        return;
     }
-);
+
+    signupButton.disabled = true;
+    buttonText.textContent = "Creating account...";
+
+    try {
+        // Remember the user across browser sessions
+        await setPersistence(auth, browserLocalPersistence);
+
+        // Create a Firebase Authentication account
+        const credential = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        // Save the name in the user's Firebase Auth profile
+        await updateProfile(credential.user, {
+            displayName: name
+        });
+
+        showMessage(
+            "Account created successfully! You can now log in.",
+            "success"
+        );
+
+        signupForm.reset();
+
+        document.querySelectorAll(".password-toggle").forEach((button) => {
+            button.textContent = "Show";
+
+            const target = document.getElementById(button.dataset.target);
+            if (target) target.type = "password";
+        });
+
+        // No automatic page redirect.
+
+    } catch (error) {
+        console.error("Sign up error:", error);
+
+        const messages = {
+            "auth/email-already-in-use":
+                "This email already has an account. Please log in.",
+            "auth/invalid-email":
+                "Please enter a valid email address.",
+            "auth/weak-password":
+                "Your password is too weak. Please use at least 6 characters.",
+            "auth/network-request-failed":
+                "Network error. Please check your internet connection.",
+            "auth/operation-not-allowed":
+                "Email and password sign-up is not enabled in Firebase."
+        };
+
+        showMessage(
+            messages[error.code] ||
+            "Unable to create your account. Please try again."
+        );
+
+    } finally {
+        signupButton.disabled = false;
+        buttonText.textContent = "Create Account";
+    }
+});
