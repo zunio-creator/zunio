@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f97316">
+    <title>Zunio | Profile</title>
+    <link rel="stylesheet" href="../css/community.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body class="profile-page">
+
+<header class="profile-topbar">
+    <a href="community.html" class="logo">Zunio<span>.</span></a>
+    <div class="header-actions">
+        <a href="community.html" class="header-link">Community</a>
+        <a href="login.html" id="loginButton" class="header-link" hidden>Login</a>
+        <button id="settingsButton" class="icon-button" type="button" aria-label="Settings">⚙</button>
+    </div>
+</header>
+
+<main class="profile-container">
+
+    <section class="profile-card">
+        <div class="profile-heading">
+            <div class="avatar" id="profileAvatar">Z</div>
+            <div class="profile-details">
+                <h1 id="profileName">Loading profile...</h1>
+                <p id="profileEmail" class="muted"></p>
+                <p class="user-id">User ID: <span id="userId">Loading...</span></p>
+                <button id="copyUserId" class="text-button" type="button">Copy User ID</button>
+                <button id="editNameButton" class="text-button" type="button">Edit profile</button>
+            </div>
+        </div>
+
+        <div class="profile-stats">
+            <button type="button" class="stat-item" id="showFollowers">
+                <strong id="followersCount">0</strong>
+                <span>Followers</span>
+            </button>
+            <button type="button" class="stat-item" id="showFollowing">
+                <strong id="followingCount">0</strong>
+                <span>Following</span>
+            </button>
+            <div class="stat-item">
+                <strong id="notesCount">0</strong>
+                <span>Notes</span>
+            </div>
+        </div>
+        <p id="profileMessage" class="message" role="status"></p>
+    </section>
+
+    <section class="section-card">
+        <h2>Find a learner</h2>
+        <p class="muted">Search another learner using their exact User ID.</p>
+        <form id="followForm" class="search-form">
+            <input id="followUserId" type="text" placeholder="Enter User ID" required>
+            <button class="primary-button" type="submit">Find</button>
+        </form>
+        <div id="followResult"></div>
+    </section>
+
+    <section class="quick-actions">
+        <a class="action-card" href="#noteForm">
+            <span class="action-icon">＋</span>
+            <strong>Create Note</strong>
+            <small>Share study notes</small>
+        </a>
+        <a class="action-card" href="study-room.html">
+            <span class="action-icon">▤</span>
+            <strong>Study Room</strong>
+            <small>Study together</small>
+        </a>
+        <a class="action-card" href="meeting-room.html">
+            <span class="action-icon">◎</span>
+            <strong>Meeting Room</strong>
+            <small>Meet and discuss</small>
+        </a>
+        <button class="action-card" id="savedNotesButton" type="button">
+            <span class="action-icon">☆</span>
+            <strong>Saved Notes</strong>
+            <small>Your bookmarks</small>
+        </button>
+    </section>
+
+    <section class="section-card" id="noteForm">
+        <h2>Create Study Note</h2>
+        <p class="muted">Share text-based study materials with the community.</p>
+        <form id="noteFormElement">
+            <label for="noteTitle">Note title</label>
+            <input id="noteTitle" maxlength="150" placeholder="Enter note title" required>
+
+            <label for="noteContent">Your note</label>
+            <textarea id="noteContent" rows="6" maxlength="20000"
+                placeholder="Write your study notes..." required></textarea>
+
+            <button id="publishButton" class="primary-button" type="submit">Publish Note</button>
+            <p id="formMessage" class="message" role="status"></p>
+        </form>
+    </section>
+
+    <section class="section-card">
+        <div class="notes-heading">
+            <h2 id="notesHeading">My Notes</h2>
+            <div class="notes-tabs">
+                <button class="notes-tab active" type="button" data-tab="uploaded">Uploaded</button>
+                <button class="notes-tab" type="button" data-tab="saved">Saved</button>
+            </div>
+        </div>
+        <p id="myNotesMessage" class="muted" role="status"></p>
+        <div id="myNotesList" class="notes-list"></div>
+        <div id="myNotesEmpty" class="empty-state" hidden>No notes to show yet.</div>
+    </section>
+
+    <section class="section-card" id="peopleSection" hidden>
+        <div class="people-heading">
+            <h2 id="peopleTitle">Followers</h2>
+            <button id="closePeople" class="text-button" type="button">Close</button>
+        </div>
+        <div id="peopleList"></div>
+    </section>
+</main>
+
+<dialog id="settingsDialog" class="profile-dialog">
+    <div class="dialog-heading">
+        <h2>Settings</h2>
+        <button id="closeSettings" class="icon-button" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <p class="muted">Manage your Zunio account.</p>
+
+    <label for="themeSelect">Appearance</label>
+    <select id="themeSelect">
+        <option value="system">System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+
+    <button id="settingsEditName" class="settings-row" type="button">Edit display name</button>
+    <button id="changePasswordButton" class="settings-row" type="button">Reset password by email</button>
+    <button id="settingsCommunity" class="settings-row" type="button">Go to Community</button>
+    <button id="logoutButton" class="settings-row" type="button">Log out</button>
+    <button id="deleteAccountButton" class="settings-row danger-button" type="button">Delete account</button>
+
+    <p id="settingsMessage" class="message" role="status"></p>
+</dialog>
+
+<nav class="bottom-nav">
+    <a href="community.html"><span>⌂</span><span>Home</span></a>
+    <a href="profile.html" class="active"><span>♙</span><span>Profile</span></a>
+    <a href="#noteForm"><span>＋</span><span>Create</span></a>
+</nav>
+
+<script type="module" src="../JS/profile.js"></script>
+</body>
+</html>

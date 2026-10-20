@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f97316">
+    <title>Zunio | Study Notes Community</title>
+    <link rel="stylesheet" href="../css/community.css">
+</head>
+<body>
+
+<header class="topbar">
+    <a class="logo" href="community.html">Zunio<span>.</span></a>
+
+    <div class="search-box">
+        <input type="search" id="searchInput"
+               placeholder="Search study notes...">
+    </div>
+
+    <a href="profile.html" class="primary-btn">My Profile</a>
+</header>
+
+<div class="community-layout">
+
+    <aside class="sidebar">
+        <div class="card">
+            <h3>Study Space</h3>
+            <p class="muted">Learn together. Share knowledge.</p>
+
+            <nav>
+                <a href="community.html" class="active">⌂ &nbsp; Community</a>
+                <a href="profile.html">♙ &nbsp; My Profile</a>
+            </nav>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+            <h3>Share your knowledge</h3>
+            <p class="muted">
+                Help other students by sharing your notes.
+            </p>
+            <a href="profile.html" class="primary-btn"
+               style="display:block;text-align:center">
+                + Create Note
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <section class="welcome-card card">
+            <p class="orange-text">WELCOME TO ZUNIO</p>
+            <h1>Study smarter, <span class="orange-text">together.</span></h1>
+            <p class="muted">
+                Discover notes, learn from others, and grow together.
+            </p>
+            <a href="profile.html" class="primary-btn"
+               style="display:inline-block">
+                Share your notes
+            </a>
+        </section>
+
+        <section style="margin-top:24px">
+            <div style="display:flex;justify-content:space-between;
+                        align-items:center;gap:12px;flex-wrap:wrap">
+                <div>
+                    <h2>Study Notes</h2>
+                    <p class="muted">Notes shared by the community</p>
+                </div>
+                <select id="sortSelect" aria-label="Sort notes"
+                        style="width:auto;max-width:160px">
+                    <option value="newest">Newest first</option>
+                    <option value="oldest">Oldest first</option>
+                </select>
+            </div>
+
+            <p id="feedMessage" class="muted" role="status">
+                Loading study notes...
+            </p>
+
+            <div id="notesFeed" class="notes-feed"></div>
+
+            <div id="emptyState" class="empty-state" hidden>
+                <h3>No notes found</h3>
+                <p class="muted">
+                    Try another search or share the first note.
+                </p>
+                <a href="profile.html" class="primary-btn"
+                   style="display:inline-block">
+                    Create a note
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <aside class="right-sidebar">
+        <div class="guide-card">
+            <h3>Study Community</h3>
+            <p class="muted">
+                Share useful notes, respect other learners,
+                and keep your study resources organized.
+            </p>
+        </div>
+    </aside>
+
+</div>
+
+<nav class="bottom-nav">
+    <a href="community.html" class="active">
+        <span>⌂</span><span>Home</span>
+    </a>
+    <a href="profile.html">
+        <span>♙</span><span>Profile</span>
+    </a>
+    <a href="profile.html#noteForm">
+        <span>＋</span><span>Create</span>
+    </a>
+</nav>
+
+<script type="module" src="../JS/community.js"></script>
+</body>
+</html>
