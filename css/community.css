@@ -1,0 +1,1139 @@
+
+/* ==========================================
+   ZUNIO — STUDY NOTES COMMUNITY
+   Clean Orange Theme
+   Works with community.html + profile.html
+========================================== */
+
+:root {
+    --orange: #f97316;
+    --orange-dark: #ea580c;
+    --orange-light: #fff7ed;
+    --orange-border: #fed7aa;
+
+    --bg: #faf9f7;
+    --white: #ffffff;
+    --text: #292524;
+    --muted: #78716c;
+    --border: #eee7e1;
+
+    --radius: 18px;
+    --shadow: 0 4px 18px rgba(41, 37, 36, 0.04);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+body,
+input,
+textarea,
+button,
+select {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+    font-size: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* ==========================================
+   TYPOGRAPHY
+========================================== */
+
+h1,
+h2,
+h3,
+h4,
+p {
+    overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--text);
+    line-height: 1.35;
+}
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 23px;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+p {
+    margin-top: 8px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.orange-text {
+    color: var(--orange-dark);
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    gap: 26px;
+
+    width: 100%;
+    min-height: 72px;
+    padding: 12px max(28px, calc((100% - 1360px) / 2));
+
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+}
+
+.logo {
+    flex-shrink: 0;
+    color: var(--orange-dark);
+    font-size: 26px;
+    font-weight: 850;
+    letter-spacing: -1.2px;
+}
+
+.logo span {
+    color: var(--orange);
+}
+
+.search-box {
+    flex: 1;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.search-box input {
+    width: 100%;
+    height: 44px;
+    padding: 0 16px;
+
+    color: var(--text);
+    background: #f7f5f2;
+    border: 1px solid transparent;
+    border-radius: 13px;
+    outline: none;
+
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.search-box input:focus {
+    background: var(--white);
+    border-color: var(--orange-border);
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.08);
+}
+
+.search-box input::placeholder {
+    color: #a8a29e;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.primary-btn,
+.submit-btn,
+.create-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 42px;
+    padding: 10px 17px;
+
+    color: #fff;
+    background: var(--orange);
+    border: 1px solid var(--orange);
+    border-radius: 12px;
+
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+    white-space: nowrap;
+
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.primary-btn:hover,
+.submit-btn:hover,
+.create-btn:hover {
+    color: #fff;
+    background: var(--orange-dark);
+    border-color: var(--orange-dark);
+}
+
+.primary-btn:focus-visible,
+.submit-btn:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(249, 115, 22, 0.25);
+    outline-offset: 3px;
+}
+
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 38px;
+    padding: 9px 14px;
+
+    color: var(--orange-dark);
+    background: var(--orange-light);
+    border: 1px solid #ffead7;
+    border-radius: 11px;
+
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.secondary-btn:hover {
+    background: #ffedd5;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ==========================================
+   COMMUNITY LAYOUT
+========================================== */
+
+.community-layout {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 680px) 240px;
+    justify-content: center;
+    align-items: start;
+    gap: 25px;
+
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 30px 24px 60px;
+}
+
+.main-content {
+    width: 100%;
+    min-width: 0;
+}
+
+.sidebar,
+.right-sidebar {
+    position: sticky;
+    top: 96px;
+    min-width: 0;
+}
+
+/* ==========================================
+   GENERAL CARDS
+========================================== */
+
+.card,
+.guide-card,
+.note-card,
+.profile-card,
+.create-note-card,
+.composer,
+.welcome-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.card,
+.guide-card {
+    padding: 19px;
+}
+
+.sidebar .card h3,
+.guide-card h3 {
+    margin: 0 0 8px;
+}
+
+.sidebar .card p,
+.guide-card p {
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 20px;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px;
+    color: var(--muted);
+    border-radius: 11px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: color 0.2s, background 0.2s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    color: var(--orange-dark);
+    background: var(--orange-light);
+}
+
+.sidebar .primary-btn {
+    width: 100%;
+    white-space: normal;
+}
+
+/* ==========================================
+   WELCOME SECTION
+========================================== */
+
+.welcome-card {
+    padding: 30px;
+    background: linear-gradient(
+        135deg,
+        #fff2e5 0%,
+        #fffaf5 55%,
+        #ffffff 100%
+    );
+    border-color: #ffead7;
+    box-shadow: none;
+}
+
+.welcome-card > p:first-child {
+    margin: 0 0 12px;
+    color: var(--orange-dark);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.welcome-card h1 {
+    max-width: 530px;
+    font-size: clamp(27px, 3vw, 35px);
+    line-height: 1.25;
+}
+
+.welcome-card h1 .orange-text {
+    color: var(--orange);
+}
+
+.welcome-card p:not(:first-child) {
+    max-width: 480px;
+    margin: 13px 0 20px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* ==========================================
+   FEED HEADER
+========================================== */
+
+.main-content > section:nth-child(2) {
+    margin-top: 28px;
+}
+
+.main-content > section:nth-child(2) > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.main-content > section:nth-child(2) > div:first-child p {
+    margin-bottom: 0;
+}
+
+#sortSelect {
+    width: auto;
+    min-width: 135px;
+    max-width: 180px;
+    min-height: 40px;
+    padding: 8px 12px;
+
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* ==========================================
+   NOTES FEED
+========================================== */
+
+#feedMessage {
+    margin: 18px 0 0;
+    font-size: 12px;
+}
+
+.notes-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    width: 100%;
+    min-width: 0;
+    margin-top: 18px;
+}
+
+.note-card {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 22px;
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.note-card:hover {
+    border-color: #f7d5bb;
+    box-shadow: 0 7px 22px rgba(41, 37, 36, 0.055);
+}
+
+/* Author row */
+
+.note-card > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+}
+
+.note-card > div:first-child > div:nth-child(2) {
+    flex: 1;
+    min-width: 0;
+}
+
+.note-card > div:first-child strong {
+    display: block;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.note-card > div:first-child .muted {
+    margin: 2px 0 0;
+    color: #a8a29e;
+    font-size: 11px;
+}
+
+.note-card > div:first-child > .orange-text {
+    flex-shrink: 0;
+    padding: 5px 9px;
+    background: var(--orange-light);
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.avatar {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+
+    color: var(--orange-dark);
+    background: #fff0df;
+    border: 1px solid #ffead7;
+    border-radius: 50%;
+
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Note title and text */
+
+.note-card h3 {
+    margin: 19px 0 10px;
+    color: var(--text);
+    font-size: 18px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.note-card > p {
+    margin: 0;
+    color: #57534e;
+    font-size: 13px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+.note-card > p + p {
+    margin-top: 10px;
+}
+
+/* Image attachment */
+
+.note-image {
+    display: block;
+    width: 100%;
+    max-height: 440px;
+    margin-top: 17px;
+    padding: 4px;
+
+    object-fit: contain;
+    background: #faf9f7;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+}
+
+/* PDF attachment */
+
+.pdf-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    width: 100%;
+    min-width: 0;
+    margin-top: 17px;
+    padding: 15px;
+
+    background: #fff8f1;
+    border: 1px solid #ffdfc2;
+    border-radius: 13px;
+}
+
+.pdf-icon {
+    display: flex;
+    flex: 0 0 46px;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    color: var(--orange-dark);
+    background: #fff;
+    border: 1px solid #ffdfc2;
+    border-radius: 11px;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.pdf-card strong {
+    overflow-wrap: anywhere;
+}
+
+.pdf-card p {
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+.pdf-card a {
+    color: var(--orange-dark);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Like, Save, Share */
+
+.note-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    margin-top: 20px;
+    padding-top: 14px;
+
+    border-top: 1px solid #f2eeea;
+}
+
+.note-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    min-height: 36px;
+    padding: 8px 11px;
+
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: color 0.2s, background 0.2s;
+}
+
+.note-actions button:hover,
+.note-actions button.active {
+    color: var(--orange-dark);
+    background: var(--orange-light);
+}
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.empty-state {
+    margin-top: 18px;
+    padding: 38px 20px;
+
+    background: #fff;
+    border: 1px dashed #fdc89d;
+    border-radius: 17px;
+
+    text-align: center;
+}
+
+.empty-state h3 {
+    margin: 0 0 8px;
+    color: var(--orange-dark);
+    font-size: 18px;
+}
+
+.empty-state p {
+    margin: 0 0 18px;
+    color: var(--muted);
+}
+
+/* ==========================================
+   PROFILE PAGE
+========================================== */
+
+body > main:not(.community-layout) {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+}
+
+.profile-card {
+    padding: 0 0 20px;
+    overflow: hidden;
+}
+
+.profile-banner {
+    min-height: 135px;
+    background: linear-gradient(
+        125deg,
+        #fdba74 0%,
+        #f97316 55%,
+        #ea580c 100%
+    );
+}
+
+.profile-card > div:nth-child(2) {
+    position: relative;
+}
+
+.profile-card h2 {
+    font-size: 22px;
+}
+
+.profile-card .avatar {
+    width: 68px;
+    height: 68px;
+    border: 4px solid white;
+    font-size: 22px;
+}
+
+.create-note-card {
+    padding: 25px;
+}
+
+.create-note-card > h2 {
+    margin: 0 0 6px;
+}
+
+.create-note-card > p {
+    margin: 0 0 22px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+#noteFormElement {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+#noteFormElement label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#noteFormElement input[type="text"],
+#noteFormElement textarea {
+    display: block;
+    width: 100%;
+    padding: 13px 14px;
+
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    outline: none;
+}
+
+#noteFormElement textarea {
+    min-height: 150px;
+    resize: vertical;
+    line-height: 1.8;
+}
+
+#noteFormElement input:focus,
+#noteFormElement textarea:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.09);
+}
+
+#noteFile {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: var(--orange-light);
+    border: 1px dashed #fdba74;
+    border-radius: 12px;
+}
+
+#noteFile::file-selector-button {
+    margin-right: 12px;
+    padding: 9px 12px;
+
+    color: #fff;
+    background: var(--orange);
+    border: 0;
+    border-radius: 8px;
+
+    font-weight: 650;
+    cursor: pointer;
+}
+
+#filePreview {
+    color: var(--muted);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+#publishButton {
+    width: 100%;
+    min-height: 47px;
+    font-size: 14px;
+}
+
+#formMessage,
+#myNotesMessage {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+body > main:not(.community-layout) > section:last-child > h2 {
+    margin-bottom: 6px;
+}
+
+body > main:not(.community-layout) > section:last-child > p {
+    color: var(--muted);
+}
+
+/* Profile note action buttons */
+
+.note-actions a.secondary-btn {
+    min-height: 35px;
+    padding: 8px 11px;
+    font-size: 12px;
+}
+
+.note-actions button.secondary-btn {
+    min-height: 35px;
+    padding: 8px 11px;
+}
+
+/* ==========================================
+   MOBILE NAVIGATION
+========================================== */
+
+.bottom-nav,
+.mobile-bottom-nav {
+    display: none;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1150px) {
+    .community-layout {
+        grid-template-columns: 195px minmax(0, 680px);
+        gap: 22px;
+        padding-inline: 22px;
+    }
+
+    .right-sidebar {
+        display: none;
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+    body {
+        font-size: 13px;
+        padding-bottom: calc(72px + env(safe-area-inset-bottom));
+    }
+
+    .topbar {
+        min-height: 62px;
+        padding: 10px 13px;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 22px;
+        letter-spacing: -1px;
+    }
+
+    .search-box {
+        min-width: 0;
+    }
+
+    .search-box input {
+        height: 39px;
+        padding-inline: 10px;
+        font-size: 12px;
+    }
+
+    .topbar > .primary-btn,
+    .topbar > .secondary-btn,
+    .topbar > button {
+        min-height: 36px;
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+
+    .community-layout {
+        display: block;
+        padding: 15px 12px 28px;
+    }
+
+    .sidebar,
+    .right-sidebar {
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .welcome-card {
+        padding: 22px 17px;
+        border-radius: 17px;
+    }
+
+    .welcome-card h1 {
+        font-size: 27px;
+        letter-spacing: -0.8px;
+    }
+
+    .welcome-card p:not(:first-child) {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .main-content > section:nth-child(2) {
+        margin-top: 23px;
+    }
+
+    .main-content h2 {
+        font-size: 20px;
+    }
+
+    #sortSelect {
+        min-width: 120px;
+        max-width: 145px;
+        min-height: 37px;
+        font-size: 12px;
+    }
+
+    .notes-feed {
+        gap: 13px;
+        margin-top: 14px;
+    }
+
+    .note-card {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .note-card h3 {
+        margin-top: 16px;
+        font-size: 17px;
+    }
+
+    .note-card > p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .note-card > div:first-child .orange-text {
+        font-size: 9px;
+        padding: 4px 6px;
+    }
+
+    .note-image {
+        max-height: 330px;
+        margin-top: 14px;
+    }
+
+    .pdf-card {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .note-actions {
+        gap: 3px;
+        margin-top: 15px;
+        padding-top: 12px;
+    }
+
+    .note-actions button {
+        min-height: 33px;
+        padding: 7px 8px;
+        font-size: 11px;
+    }
+
+    body > main:not(.community-layout) {
+        padding: 18px 12px 35px;
+    }
+
+    .profile-banner {
+        min-height: 105px;
+    }
+
+    .profile-card {
+        padding-bottom: 15px;
+    }
+
+    .profile-card h2 {
+        font-size: 19px;
+    }
+
+    .create-note-card {
+        padding: 18px 15px;
+    }
+
+    .create-note-card > h2 {
+        font-size: 21px;
+    }
+
+    #noteFormElement {
+        gap: 16px;
+    }
+
+    #noteFormElement textarea {
+        min-height: 135px;
+    }
+
+    .bottom-nav,
+    .mobile-bottom-nav {
+        position: fixed;
+        z-index: 200;
+
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 5px;
+
+        padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+
+        background: rgba(255, 255, 255, 0.97);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 18px rgba(41, 37, 36, 0.045);
+        backdrop-filter: blur(15px);
+    }
+
+    .bottom-nav a,
+    .mobile-bottom-nav a {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+
+        min-width: 0;
+        padding: 5px 2px;
+
+        color: var(--muted);
+        border-radius: 10px;
+        font-size: 10px;
+    }
+
+    .bottom-nav a span:first-child,
+    .mobile-bottom-nav a span:first-child {
+        font-size: 19px;
+        line-height: 1.2;
+    }
+
+    .bottom-nav a.active,
+    .mobile-bottom-nav a.active {
+        color: var(--orange-dark);
+        font-weight: 750;
+    }
+}
+
+/* ==========================================
+   SMALL PHONES
+========================================== */
+
+@media (max-width: 380px) {
+    .topbar {
+        gap: 7px;
+        padding-inline: 9px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .topbar > .primary-btn,
+    .topbar > .secondary-btn,
+    .topbar > button {
+        padding-inline: 7px;
+        font-size: 10px;
+    }
+
+    .community-layout {
+        padding-inline: 9px;
+    }
+
+    .welcome-card {
+        padding: 19px 14px;
+    }
+
+    .welcome-card h1 {
+        font-size: 24px;
+    }
+
+    .note-card {
+        padding: 12px;
+    }
+
+    .note-card h3 {
+        font-size: 16px;
+    }
+
+    .note-actions {
+        gap: 1px;
+    }
+
+    .note-actions button {
+        padding-inline: 6px;
+        font-size: 10px;
+    }
+
+    .note-card > div:first-child .orange-text {
+        display: none;
+    }
+}
