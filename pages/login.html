@@ -1,403 +1,107 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Liquid Glass Login</title>
+    <title>Zunio | Login</title>
 
     <link rel="stylesheet" href="../css/login.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
-
 </head>
-
-
 <body>
 
+    <main class="login-page">
+        <div class="background-shape shape-one"></div>
+        <div class="background-shape shape-two"></div>
 
-    <!-- =========================================
-         BACKGROUND
-    ========================================== -->
+        <section class="login-card">
 
-    <div class="background">
+            <a href="../index.html" class="brand">
+                <span class="brand-icon">Z</span>
+                <span>Zunio</span>
+            </a>
 
-        <div class="blob blob-one"></div>
+            <div class="login-heading">
+                <span class="eyebrow">WELCOME BACK</span>
+                <h1>Log In</h1>
+                <p>Sign in to continue your journey with Zunio.</p>
+            </div>
 
-        <div class="blob blob-two"></div>
+            <form id="loginForm">
 
-        <div class="blob blob-three"></div>
+                <div class="input-group">
+                    <label for="loginEmail">Email Address</label>
 
-    </div>
-
-
-
-    <!-- =========================================
-         AUTH CONTAINER
-    ========================================== -->
-
-    <main
-        class="auth-container"
-        id="authContainer"
-    >
-
-
-        <!-- =====================================
-             SIGN IN
-        ====================================== -->
-
-        <section class="form-section sign-in-section">
-
-            <div class="form-content">
-
-                <h1>Login In</h1>
-
-                <p class="form-subtitle">
-                    Sign in to continue your journey
-                </p>
-
-
-                <p class="or-text">
-                    or use your email
-                </p>
-
-
-                <!-- Login Form -->
-
-                <form id="loginForm">
-
-
-                    <div class="input-box">
-
-                        <span class="input-icon">
-                            ✉
-                        </span>
-
+                    <div class="input-wrap">
+                        <span class="input-icon">✉</span>
                         <input
                             type="email"
                             id="loginEmail"
-                            placeholder="Email Address"
+                            placeholder="Enter your email"
                             autocomplete="email"
                             required
                         >
-
                     </div>
+                </div>
 
+                <div class="input-group">
+                    <label for="loginPassword">Password</label>
 
-
-                    <div class="input-box">
-
-                        <span class="input-icon">
-                            🔒
-                        </span>
-
+                    <div class="input-wrap">
+                        <span class="input-icon">♙</span>
                         <input
                             type="password"
                             id="loginPassword"
-                            placeholder="Password"
+                            placeholder="Enter your password"
                             autocomplete="current-password"
                             required
                         >
-
                         <button
                             type="button"
                             class="password-toggle"
                             data-target="loginPassword"
-                        >
-                            ◉
-                        </button>
-
+                            aria-label="Show password"
+                        >Show</button>
                     </div>
+                </div>
 
-
-                    <a
-                        href="#"
-                        class="forgot-password"
-                    >
+                <div class="form-options">
+                    <span></span>
+                    <button type="button" id="forgotPassword">
                         Forgot Password?
-                    </a>
-
-
-                    <button
-                        type="submit"
-                        class="main-btn"
-                    >
-                        Login in
                     </button>
-
-
-                </form>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             SIGN UP
-        ====================================== -->
-
-        <section class="form-section sign-up-section">
-
-            <div class="form-content">
-
-                <h1>Create Account</h1>
-
-                <p class="form-subtitle">
-                    Register your account to get started
-                </p>
-
-
-
-                <p class="or-text">
-                    or use your email
-                </p>
-
-
-                <!-- Sign Up Form -->
-
-                <form id="signupForm">
-
-
-                    <div class="input-box">
-
-                        <span class="input-icon">
-                            👤
-                        </span>
-
-                        <input
-                            type="text"
-                            id="signupName"
-                            placeholder="Full Name"
-                            autocomplete="name"
-                            required
-                        >
-
-                    </div>
-
-
-
-                    <div class="input-box">
-
-                        <span class="input-icon">
-                            ✉
-                        </span>
-
-                        <input
-                            type="email"
-                            id="signupEmail"
-                            placeholder="Email Address"
-                            autocomplete="email"
-                            required
-                        >
-
-                    </div>
-
-
-
-                    <div class="input-box">
-
-                        <span class="input-icon">
-                            🔒
-                        </span>
-
-                        <input
-                            type="password"
-                            id="signupPassword"
-                            placeholder="Create Password"
-                            autocomplete="new-password"
-                            required
-                        >
-
-                        <button
-                            type="button"
-                            class="password-toggle"
-                            data-target="signupPassword"
-                        >
-                            ◉
-                        </button>
-
-                    </div>
-
-
-
-                    <div class="input-box">
-
-                        <span class="input-icon">
-                            🔒
-                        </span>
-
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            placeholder="Confirm Password"
-                            autocomplete="new-password"
-                            required
-                        >
-
-                        <button
-                            type="button"
-                            class="password-toggle"
-                            data-target="confirmPassword"
-                        >
-                            ◉
-                        </button>
-
-                    </div>
-
-
-
-                    <label class="terms">
-
-                        <input
-                            type="checkbox"
-                            id="terms"
-                            required
-                        >
-
-                        <span>
-                            I agree to the
-                            <a href="#">
-                                Terms & Conditions
-                            </a>
-                        </span>
-
-                    </label>
-
-
-
-                    <button
-                        type="submit"
-                        class="main-btn"
-                    >
-                        SIGN UP
-                    </button>
-
-
-                </form>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             MOVING GLASS PANEL
-        ====================================== -->
-
-        <div class="overlay-panel">
-
-
-            <!-- Glass Shine -->
-
-            <div class="glass-shine"></div>
-
-
-
-            <!-- Decorative Light -->
-
-            <div class="glass-circle circle-one"></div>
-
-            <div class="glass-circle circle-two"></div>
-
-
-
-            <!-- =================================
-                 PANEL : SIGN IN STATE
-            ================================== -->
-
-            <div class="overlay-content overlay-login">
-
-                <div class="panel-icon">
-                    Z
                 </div>
 
-                <h2>
-                    Hello, Friend!
-                </h2>
+                <p id="loginMessage" class="message"
+                   role="status" aria-live="polite"></p>
 
-                <p>
-                    Don't have an account yet?
-                    <br>
-                    Create your account and
-                    <br>
-                    start your journey with us.
-                </p>
-
-                <button
-                    class="outline-btn"
-                    id="showSignUp"
-                >
-                    SIGN UP
+                <button type="submit" id="loginButton" class="login-btn">
+                    <span id="buttonText">Log In</span>
+                    <span aria-hidden="true">→</span>
                 </button>
 
+            </form>
+
+            <div class="signup-link">
+                Don't have an account?
+                <a href="signup.html">Create Account</a>
             </div>
 
+            <p class="footer-note">
+                © 2026 Zunio. All rights reserved.
+            </p>
 
-
-            <!-- =================================
-                 PANEL : SIGN UP STATE
-            ================================== -->
-
-            <div class="overlay-content overlay-register">
-
-                <div class="panel-icon">
-                    ✦
-                </div>
-
-                <h2>
-                    Welcome Back!
-                </h2>
-
-                <p>
-                    Already have an account?
-                    <br>
-                    Sign in and continue
-                    <br>
-                    your journey with us.
-                </p>
-
-                <button
-                    class="outline-btn"
-                    id="showSignIn"
-                >
-                    SIGN IN
-                </button>
-
-            </div>
-
-
-        </div>
-
-
+        </section>
     </main>
 
-
-
     <script type="module" src="../JS/login.js"></script>
-
 </body>
-
 </html>
